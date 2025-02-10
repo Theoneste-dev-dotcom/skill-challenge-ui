@@ -6,12 +6,15 @@ import { IoMdAdd, IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { VscArrowSmallLeft } from "react-icons/vsc";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/redux/store";
-// import axios from "axios";
+
+
+interface User {
+  id: string;
+  [key: string]: string;
+}
 
 const Page: React.FC = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState<User | null>(null);
 
   const router = useRouter();
   const [createChallenge] = useCreateChallengeMutation();
