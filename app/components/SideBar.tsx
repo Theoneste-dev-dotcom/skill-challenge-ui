@@ -14,10 +14,11 @@ import { RiTelegram2Line } from "react-icons/ri";
 import { usePathname, useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { clearCredentials } from "@/lib/redux/slices/authSlice";
+import { UserType } from "../admin/challenges/create/page";
 
 
 const SideBar = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState<UserType | null>(null)
   const dispatch = useDispatch();
   const router = useRouter();
   const [showLogoutModal, setShowLogoutModal] = useState(false);

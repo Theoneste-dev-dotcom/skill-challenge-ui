@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FiFileText } from "react-icons/fi";
 import SmallStatusCard from "../components/SmallStatusCard";
 import ChallengeCard2 from "@/app/components/ChallengeCard2";

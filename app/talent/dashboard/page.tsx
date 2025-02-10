@@ -9,12 +9,13 @@ import { useGetChallengesQuery } from "@/lib/redux/slices/challengeSlice";
 import Link from "next/link";
 import { useGetChallengesByUserWithStatusQuery } from "@/lib/redux/slices/participantsSlice";
 import { FaChevronRight } from "react-icons/fa";
+import { UserType } from "@/app/admin/challenges/create/page";
 const Dashboard = () => {
   const [openCount, setOpenCount] = useState(0);
   const [ongoingCount, setOngoingCount] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
   // const user = useSelector((state: RootState) => state.auth.user);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<UserType | null>(null);
 
   useEffect(() => {
     const av_user = localStorage.getItem("user");

@@ -6,9 +6,10 @@ import Card from "@/app/components/Card";
 import Card2 from "@/app/components/Card2";
 import { FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
+import { UserType } from "../challenges/create/page";
 
 const Page = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState<UserType | null>(null)
   const { data } = useGetChallengesQuery();
 
   useEffect(() => {

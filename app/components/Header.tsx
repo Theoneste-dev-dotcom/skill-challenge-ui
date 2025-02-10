@@ -5,7 +5,6 @@ import { IoFilterOutline, IoSearchSharp } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import io, { Socket } from "socket.io-client";
 import { useDispatch, useSelector } from "react-redux";
-import ProtectedRoute from "./script/Protection";
 import Image from "next/image";
 
 import { setSearchQuery } from "@/lib/redux/slices/searchSlice";
