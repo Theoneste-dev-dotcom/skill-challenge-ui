@@ -12,12 +12,9 @@ import {
 } from "@/lib/redux/slices/challengeSlice";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/redux/store";
 
 const Page = () => {
   const [currentUser, setCurrentUser] = useState(null)
-  const [updateChallenge, { isLoading, isError, isSuccess }] =
     useUpdateChallengeMutation();
 
   const router = useRouter();
@@ -26,8 +23,8 @@ const Page = () => {
   const { data } = useGetChallengeByIdQuery(params.id);
 
   useEffect(() => {
-    if (data?.Challenge) {
-      setChallenge(data.Challenge);
+    if (data) {
+      setChallenge(data);
     }
   }, [data]);
 
@@ -352,9 +349,9 @@ const Page = () => {
             <button
               type="submit"
               className="bg-[#2B71f0] w-[324px] h-[56px] text-[16px] rounded-[5px] font-semibold text-white"
-              disabled={isLoading} // Disable button while loading
+             
             >
-              {isLoading ? "Editing..." : " Edit Challenge"}
+             Edit Challenge
             </button>
           </div>
         </form>

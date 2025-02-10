@@ -2,13 +2,13 @@
 import { useCreateChallengeMutation } from "@/lib/redux/slices/challengeSlice";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { IoMdAdd, IoMdAddCircleOutline } from "react-icons/io";
+import {  IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { VscArrowSmallLeft } from "react-icons/vsc";
 import { useRouter } from "next/navigation";
 
 
-interface User {
+export interface User {
   id: string;
   [key: string]: string;
 }
