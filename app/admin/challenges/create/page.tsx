@@ -8,13 +8,13 @@ import { VscArrowSmallLeft } from "react-icons/vsc";
 import { useRouter } from "next/navigation";
 
 
-export interface User {
+export interface UserType {
   id: string;
   [key: string]: string;
 }
 
 const Page: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
 
   const router = useRouter();
   const [createChallenge] = useCreateChallengeMutation();

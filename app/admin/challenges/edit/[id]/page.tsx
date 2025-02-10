@@ -12,9 +12,10 @@ import {
 } from "@/lib/redux/slices/challengeSlice";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { UserType } from "../../create/page";
 
 const Page = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+const [currentUser, setCurrentUser] = useState<UserType | null>(null);
     useUpdateChallengeMutation();
 
   const router = useRouter();

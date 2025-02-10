@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CiDollar } from "react-icons/ci";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import {
   IoBagOutline,
   IoCalendarOutline,
@@ -26,10 +25,8 @@ import {
 
 const Page = () => {
   const [createStartChallenge] = useStartChallengeMutation();
-  const router = useRouter();
   const params = useParams<{ id: string }>(); // Move this to the top
   const user = useSelector((state: RootState) => state.auth.user);
-  const [currentUser, setCurrentUser] = useState(null);
   const [showStarted, setShowStarted] = useState(false);
   const [challenge, setChallenge] = useState<ChallengeType | null>(null);
   // Fetch challenge status
@@ -38,13 +35,7 @@ const Page = () => {
   );
 
 
-  useEffect(()=> {
-    const av_user = localStorage.getItem('user')
-    if(av_user) {
-      setCurrentUser(JSON.parse(av_user))
-    }
-  }, [])
-
+ 
   useEffect(() => {
     if (statusData) {
       setShowStarted(statusData.status);
@@ -69,20 +60,6 @@ const Page = () => {
     }
   }, [params.id]);
 
-  // Delete challenge
-  const deleteChallenge = async () => {
-    try {
-      await axios.delete(`https://skills-challenge.onrender.com/challenges/${params.id}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      router.push("/admin/challenges");
-    } catch (error) {
-      console.error("Failed to delete challenge:", error);
-    }
-  };
 
   return (
     <div className="excluded  h-[1000px] overflow-y-auto">
@@ -95,7 +72,7 @@ const Page = () => {
           >
             <VscArrowSmallLeft className="text-[21px]" />
           </Link>
-          <h2 className="text-[#667185] text-[14px]">Go Back</h2>
+          <h2 className="text-[#667185] text-[14px]" >Go Back</h2>
           <h2 className="flex flex-row items-center justify-center text-[14px] space-x-[4px]">
             <span className="text-[#667185]">Create New Challenge</span>
             <span className="text-[#667185]">/</span>
