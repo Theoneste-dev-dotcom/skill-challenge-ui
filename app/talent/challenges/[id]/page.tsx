@@ -33,7 +33,7 @@ const Page = () => {
   const { data: statusData } = useGetStatusQuery(
     user ? { userId: user.id, challengeId: params.id } : undefined
   );
-  const baseUrl = "https://skills-challenge.onrender.com/challenges";
+  const baseUrl = "https://skills-challenge.onrender.com";
   // const baseUrl = "http://localhost:4000"
 
  
